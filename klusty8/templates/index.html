@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Klusty8</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A search results clustering application">
+  <meta name="author" content="karthik(karthikprasad@engineer.com)">
+
+  <!-- Le styles -->
+  <link href="../static/css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  </style>
+  <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+
+  <style type="text/css">
+    li{
+      font-size: 17px;
+    }
+  </style>
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <!-- Fav and touch icons -->
+      <link rel="shortcut icon" href="../static/img/klusty.ico">
+    </head>
+
+    <body>
+
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">Klusty<img style="height:22px; width:17px; margin:-4px 0 0 4px" src="../static/img/noshadow.png" /></a>
+            <div class="nav-collapse collapse nav"> 
+              <ul class="nav">
+                <li style="padding-top:10px; padding-bottom:10px">search results clustering</li> 
+              </ul>
+            </div>
+            <div class="nav-collapse collapse">
+              <ul class="nav pull-right">
+                <li id="home" class="active"><a href="/">Search</a></li>
+                <li id="about"><a href="/about">About</a></li> 
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="content" class="container">
+
+        <!-- Main hero unit for a primary marketing message or call to action -->
+        <div class="hero-unit" >
+
+          <div  style="text-align:center; margin: -20px 0 20px 0;" >
+            <span style="font-size:53px; font-weight:bold">Klusty</span>
+            <img style="height:108px"src="../static/img/noshadow.png" />
+          </div>
+
+          
+          <form class="form-search" style="text-align:center" action="/search" onsubmit="search(); return false;">
+            <input id="query" type="text" class="input-xxlarge search-query" placeholder="Enter your search string here..." />
+            &nbsp;
+            <button type="submit" class="btn btn-primary ">Search</button>
+          </form>
+        </div><!-- /hero-unit -->
+
+        <h2>
+          <p id="waitmsg" style="text-align:center; color:#4B0082; display:none">
+            Behold! Thou art about to witness the 8 magical clusters...
+          </p>
+        </h2>
+
+        <!-- Row of columns -->
+        <div id="output"class="row"></div>
+
+        <hr>
+
+        <footer style="text-align:center">
+          <p>&copy; <a href="http://www.about.me/karthikprasad">karthikprasad </a>2012</p>
+          <p>This application has been built for academic purpose and is not intended for commercial use.</p>
+        </footer>
+
+      </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery-182.js"></script>
+    <script src="../static/js/bootstrap-transition.js"></script>
+    <script src="../static/js/bootstrap-alert.js"></script>
+    <script src="../static/js/bootstrap-modal.js"></script>
+    <script src="../static/js/bootstrap-dropdown.js"></script>
+    <script src="../static/js/bootstrap-scrollspy.js"></script>
+    <script src="../static/js/bootstrap-tab.js"></script>
+    <script src="../static/js/bootstrap-tooltip.js"></script>
+    <script src="../static/js/bootstrap-popover.js"></script>
+    <script src="../static/js/bootstrap-button.js"></script>
+    <script src="../static/js/bootstrap-collapse.js"></script>
+    <script src="../static/js/bootstrap-carousel.js"></script>
+    <script src="../static/js/bootstrap-typeahead.js"></script>
+
+
+
+    <!-- Le scripts for ajax -->
+    <script type="text/javascript">
+    search = function(){
+        $("div#output").html("");
+        $("p#waitmsg").css("display","block");
+        $.get("/search", 
+          {"q": encodeURIComponent($("#query").val())},
+
+          function(htmlResponse){
+            $("p#waitmsg").css("display","none");
+            $("div#output").html(htmlResponse);
+          }
+
+          );
+      }
+
+
+      </script>
+
+    </body>
+    </html>

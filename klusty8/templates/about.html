@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>About-Klusty8</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Klusty - a search results clustering application">
+  <meta name="author" content="karthik(karthikprasad@engineer.com)">
+
+  <!-- Le styles -->
+  <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+  <style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  </style>
+  <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+
+  <style type="text/css">
+    @media (min-width: 768px) { 
+      .side-fix{
+        position: fixed;
+      } 
+    }
+
+    li{
+      font-size: 17px;
+    }
+
+    li#techList{
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+  </style>
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <!-- Fav and touch icons -->
+      <link rel="shortcut icon" href="../static/img/klusty.ico">
+    </head>
+
+    <body>
+
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">Klusty<img style="height:22px; width:17px; margin:-4px 0 0 4px" src="../static/img/noshadow.png" /></a>
+            <div class="nav-collapse collapse nav"> 
+              <ul class="nav">
+                <li style="padding-top:10px; padding-bottom:10px">search results clustering</li> 
+              </ul>
+            </div>
+            <div class="nav-collapse collapse">
+              <ul class="nav pull-right">
+                <li id="home"><a href="/">Search</a></li>
+                <li id="about" class="active"><a href="/about">About</a></li> 
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="content" class="container">
+        <div class="row">
+          <!-- Main hero unit for a primary marketing message or call to action -->
+          
+          <div class="span3 side-fix" style="text-align:center">
+            <img src="../static/img/white.jpg" />
+          </div>
+
+
+          <div class="span9 pull-right">
+            <p>
+              <h2>Klusty8</h2>
+              <h4>
+                &nbsp;&nbsp;&nbsp;&nbsp;a search results clustering application -- inspired by <a href="http://clusty.com">clusty.com</a>
+              </h4>
+              <br />
+
+
+              <h2>What?</h2>
+              <p class="lead">
+                A typical serach engine displays all the results for a given query without any logical grouping.
+              </p>
+              <p style="text-align:center"> bing results for 'mango' <br />
+                <img style="height:400px; width:600px; text-align:center" src="../static/img/bing-results.png" />
+              </p>
+              <br />
+              <p class="lead">
+                <a href="/">Klusty8</a> attempts to bring the required clarity. It selects the best of <b>top 50</b> search results obtained from Microsoft's <a href="http://www.bing.com">bing.com</a> and groups them(logically) into <b><u style="white-space:nowrap">8 clusters</u></b> based on their content.
+              </p>
+              <p style="text-align:center"> Klusty8 results for 'mango' <br />
+                <img style="height:400px; width:600px; text-align:center" src="../static/img/klusty8-results.png" />
+              </p>
+              <br />
+              <br />
+
+              <h2>How?</h2>
+              <p class="lead">
+                '<a href="http://en.wikipedia.org/wiki/K-means_clustering">k-means</a>'-ish flavour of <a href="http://en.wikipedia.org/wiki/K-medoid">k-medoids</a> - a partition based clutsering algorithm - is used; since the data involved is non-numeric.
+                <br />
+                <a href="http://en.wikipedia.org/wiki/Jaccard_similarity">Jaccard similarity</a> is used as the distance measure between the elemets.
+              </p>
+              <p class="lead">
+                The cluster title is the tilte of the "central" search result in the cluster. Since the initial centers are chosen randomly, the clustering may change from search to search.
+              </p>
+              
+
+
+              <p class="lead">
+                This application has been developed by applying the different concepts and technologies I have learnt over the past one month:
+                <ul>
+                  <li id="techList">Algorithms of the Intelligent Web</li>
+                  <li id="techList">Ajax and jQuery</li>
+                  <li id="techList">RSS</li>
+                  <li id="techList">Google AppEngine and related python frameworks.</li>
+                </ul>
+              </p>
+              <br />
+
+
+              <h2>Where?</h2>
+              <p class="lead">
+                A simple version of the <a href="http://en.wikipedia.org/wiki/K-medoid">k-medoids</a> algorithm has been implemented - allowing a lot of scope for further improvement.
+                <br />
+                The complete sourcecode can be found on <a href="http://www.github.com/karthikprasad/klusty8">github</a>
+              </p>
+              <br/>
+
+              <h2>Who?</h2>
+              <p class="lead">
+                You can contact me by <a href="mailto:karthikprasad@engineer.com">mail</a> or connect with me on <a href="http://www.linkedin.com/in/prasadkarthik">Linkedin</a>.
+              </p>
+            </p>
+          </div><!-- /hero-unit -->
+        </div>
+
+
+
+
+        <div class="span12">
+          <hr>
+          <footer style="text-align:center">
+            <p>&copy; <a href="http://www.about.me/karthikprasad">karthikprasad </a>2012</p>
+            <p>This application has been built for academic purpose and is not intended for commercial use.</p>
+          </footer>
+        </div>
+
+      </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery-182.js"></script>
+    <script src="../static/js/bootstrap-transition.js"></script>
+    <script src="../static/js/bootstrap-alert.js"></script>
+    <script src="../static/js/bootstrap-modal.js"></script>
+    <script src="../static/js/bootstrap-dropdown.js"></script>
+    <script src="../static/js/bootstrap-scrollspy.js"></script>
+    <script src="../static/js/bootstrap-tab.js"></script>
+    <script src="../static/js/bootstrap-tooltip.js"></script>
+    <script src="../static/js/bootstrap-popover.js"></script>
+    <script src="../static/js/bootstrap-button.js"></script>
+    <script src="../static/js/bootstrap-collapse.js"></script>
+    <script src="../static/js/bootstrap-carousel.js"></script>
+    <script src="../static/js/bootstrap-typeahead.js"></script>
+
+
+  </body>
+  </html>

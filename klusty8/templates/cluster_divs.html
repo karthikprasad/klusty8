@@ -1,0 +1,13 @@
+{% for title in titles %}
+<div id="results" class="span6" style="border-radius:6px; margin-top:20px; background-color:{{colours[loop.index]}}">
+  <h2 style="margin: 10px 2px 10px 4px">{{title}}</h2>
+  <ul class="unstyled">
+    {% for item in clusters[title] %}
+    <li>
+      <h4 style="margin: 10px 3px 0px 10px"><a href="{{item.link}}">{{item.title}}</a></h4>
+      <p style="margin: 2px 4px 17px 10px">{{item.summary}}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %}
