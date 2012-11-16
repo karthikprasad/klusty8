@@ -3,12 +3,14 @@
 ##	@date 07 Nov 2012
 ##		  12 Nov 2012
 ##		  13 Nov 2012
+##		  16 Nov 2012 (added stemmer)
 ##
 
 
 import re
 import random
 import collections
+import stemmer
 
 ###############################################################################################################################
 ###############################################################################################################################
@@ -19,15 +21,18 @@ def jaccard_distance(item1, item2):
 		@param two rss feed items
 		@return Jaccard distance(float) -> 1 - similarity
 
-		@depedencies: re, stopwords(file)
+		@depedencies: re, stemmer, stopwords(file)
 	"""
-
-	##tokenizing string
+	# creating Porter Stemmer object
+	ps = stemmer.PorterStemmer()
+	##tokenizing string and stemming
 	#words in item1
 	wordsItem1 = re.findall(r"[\w']+", item1["title"].lower()) + re.findall(r"[\w']+", item1["summary"].lower())
+	wordsItem1[:] = [ps.stem(word) for word in wordsItem1]
 
 	#words in item2
 	wordsItem2 = re.findall(r"[\w']+", item2["title"].lower()) + re.findall(r"[\w']+", item2["summary"].lower())
+	wordsItem2[:] = [ps.stem(word) for word in wordsItem2]
 
 	#get english stopwords list
 	stopWordFile = open("stopwords", "r")
